@@ -87,7 +87,6 @@ header .logo {
 .hero-text h1 {
   font-size: 1.6rem;
   margin-bottom: 0.5rem;
-  animation: heroBounce 3s ease-in-out infinite;
 }
 .hero-text p {
   font-size: 1rem;
@@ -95,7 +94,7 @@ header .logo {
   color: var(--purple);
 }
 
-/* Sections */
+/* SECTIONS */
 .section {
   padding: 2rem 1rem;
 }
@@ -129,14 +128,10 @@ h3::after {
   border-radius: var(--radius);
   text-align: center;
   box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-  transition: transform 0.3s, box-shadow 0.3s;
-  opacity: 0;
-  transform: translateY(20px);
+  transition: transform 0.3s;
 }
-.card:hover, .price-card:hover, .step:hover,
-.card:active, .price-card:active, .step:active {
-  transform: translateY(-5px) scale(1.03);
-  box-shadow: 0 12px 22px rgba(0,0,0,0.2), var(--glow);
+.card:hover, .price-card:hover, .step:hover {
+  transform: translateY(-5px);
 }
 
 /* FORMULAIRE */
@@ -163,9 +158,6 @@ button.submit {
   padding: 0.6rem;
   border-radius: var(--radius);
   font-size: 1rem;
-}
-button.submit:hover:not(:disabled) {
-  background: var(--blue);
 }
 
 /* FOOTER */
@@ -199,14 +191,4 @@ footer {
   .nav-links a {
     font-size: 1rem;
   }
-}
-
-/* ANIMATIONS */
-@keyframes heroBounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-5px); }
-}
-@keyframes floatUp {
-  0% { transform: translateY(20px); opacity: 0; }
-  100% { transform: translateY(0); opacity: 1; }
 }
