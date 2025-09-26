@@ -1,0 +1,553 @@
+/* --- VARIABLES --- */
+:root {
+  --blue: #00aaff;
+  --purple: #8e2de2;
+  --bg: #f5f6fa;
+  --text: #111;
+  --card-bg: #ffffff;
+  --input-bg: #f0f0f5;
+  --radius: 12px;
+  --transition: 0.4s;
+  --glow: 0 0 15px rgba(142,45,226,0.7);
+}
+
+/* --- RESET --- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden;
+  font-size: 16px;
+}
+
+/* --- HEADER --- */
+header {
+  position: sticky;
+  top: 0;
+  background: rgba(245,246,250,0.95);
+  backdrop-filter: blur(5px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  z-index: 1000;
+  flex-wrap: wrap;
+}
+
+header .logo {
+  font-weight: 700;
+  font-size: 1.5rem;
+  background: linear-gradient(90deg, var(--blue), var(--purple));
+  -webkit-background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
+
+.nav-links {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.nav-links a {
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius);
+  transition: var(--transition);
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 600;
+}
+
+.nav-links a:hover {
+  background: var(--blue);
+  color: #fff;
+  transform: translateY(-3px);
+  box-shadow: var(--glow);
+}
+
+.lang-switcher {
+  display: flex;
+  gap: 0.3rem;
+}
+
+.lang-switcher button {
+  padding: 0.4rem 0.8rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+  background: #e0e0e0;
+}
+
+.lang-switcher button.active,
+.lang-switcher button:hover {
+  background: var(--purple);
+  color: #fff;
+  box-shadow: var(--glow);
+  transform: scale(1.05);
+}
+
+/* --- HERO --- */
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg,#cceeff,#e0ccff);
+  border-radius: 16px;
+  margin: 2rem;
+  text-align: center;
+  perspective: 1000px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-text h1 {
+  font-size: 2.5rem;
+  color: var(--text);
+  margin-bottom: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.hero-text h1:hover {
+  transform: rotateX(5deg) rotateY(5deg);
+}
+
+.hero-text p {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0;
+  color: var(--purple);
+}
+
+.big-check {
+  color: #00aa00;
+  font-weight: bold;
+}
+
+/* --- SECTIONS --- */
+.section {
+  padding: 3rem 2rem;
+  max-width: 1200px;
+  margin: auto;
+}
+
+h3 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  position: relative;
+}
+
+h3::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg,var(--blue),var(--purple));
+  margin: 0.5rem auto 0;
+  border-radius: 2px;
+}
+
+/* --- CARDS, PRIX, TIMELINE --- */
+.cards, .price-grid, .timeline, .info-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+.card, .price-card, .step, .info-card {
+  background: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: transform 0.4s, box-shadow 0.4s;
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+
+.card:hover, .price-card:hover, .step:hover, .info-card:hover {
+  transform: translateY(-10px) rotateX(5deg) rotateY(5deg);
+  box-shadow: 0 15px 25px rgba(0,0,0,0.25), var(--glow);
+}
+
+.price-card.recommended {
+  border: 2px solid var(--purple);
+  position: relative;
+}
+
+.price-card.recommended::before {
+  content: "Recommandé";
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--purple);
+  color: white;
+  padding: 3px 10px;
+  border-radius: 10px;
+  font-size: 0.8rem;
+}
+
+.price {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: var(--purple);
+  margin: 0.5rem 0;
+}
+
+/* --- FORMULAIRE --- */
+form {
+  display: grid;
+  gap: 1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+fieldset {
+  border: 1px solid #ccc;
+  padding: 1rem;
+  border-radius: var(--radius);
+  transition: box-shadow 0.3s;
+}
+
+fieldset:focus-within {
+  box-shadow: var(--glow);
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 1rem;
+  border-radius: var(--radius);
+  border: 1px solid #ccc;
+  background: var(--input-bg);
+  color: var(--text);
+  transition: 0.3s, transform 0.3s;
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: 2px solid var(--blue);
+  transform: scale(1.02);
+}
+
+button.submit {
+  background: var(--purple);
+  color: #fff;
+  padding: 0.7rem;
+  cursor: pointer;
+  border-radius: var(--radius);
+  transition: 0.3s, transform 0.3s, box-shadow 0.3s;
+  border: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+button.submit:hover:not(:disabled) {
+  background: var(--blue);
+  transform: scale(1.05) translateY(-2px);
+  box-shadow: 0 0 20px var(--glow);
+}
+
+button.submit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* --- FAQ --- */
+details {
+  margin-bottom: 1rem;
+  border: 1px solid #ddd;
+  border-radius: var(--radius);
+  padding: 1rem;
+}
+
+summary {
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* --- FOOTER --- */
+footer {
+  padding: 2rem;
+  text-align: center;
+  background: #f0f0f5;
+  margin-top: 2rem;
+  border-radius: 16px 16px 0 0;
+  color: #111;
+}
+
+/* --- STYLES POUR LES INFORMATIONS IMPORTANTES --- */
+.info-text {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--purple);
+  margin-top: 0.5rem;
+}
+
+.url-display {
+  word-break: break-all;
+  overflow-wrap: anywhere;
+  font-family: monospace;
+  font-size: 0.9rem;
+  color: var(--purple);
+  background: rgba(142, 45, 226, 0.1);
+  padding: 10px;
+  border-radius: 5px;
+  margin: 5px 0;
+}
+
+/* --- CORRECTIONS MOBILE URGENTES --- */
+@media (max-width: 768px) {
+  /* Header amélioré */
+  header {
+    padding: 0.8rem 1rem;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .logo {
+    font-size: 1.2rem !important;
+  }
+  
+  .nav-links {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+    margin-top: 10px;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  
+  .nav-links a {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+    white-space: nowrap;
+  }
+  
+  .lang-switcher {
+    margin-top: 0;
+    justify-content: center;
+  }
+  
+  /* Hero texte adaptatif */
+  .hero {
+    margin: 1rem;
+    padding: 2rem 1rem;
+  }
+  
+  .hero-text h1 {
+    font-size: 1.5rem;
+    line-height: 1.3;
+  }
+  
+  .hero-text p {
+    font-size: 1rem;
+  }
+  
+  /* Cartes sur une colonne */
+  .cards, .price-grid, .timeline, .info-cards {
+    flex-direction: column;
+    gap: 15px;
+    padding: 0 10px;
+  }
+  
+  .card, .price-card, .step, .info-card {
+    width: 100%;
+    margin: 0 auto;
+  }
+  
+  /* Formulaire adapté */
+  form {
+    width: 100%;
+    padding: 0 10px;
+  }
+  
+  fieldset {
+    padding: 15px;
+  }
+  
+  button.submit {
+    width: 100%;
+    padding: 10px;
+  }
+  
+  /* Footer centré et lisible */
+  footer {
+    text-align: center;
+    font-size: 0.85rem;
+    padding: 15px 10px;
+    word-wrap: break-word;
+  }
+  
+  /* Sections moins espacées */
+  .section {
+    padding: 2rem 1rem;
+  }
+  
+  h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  /* Réduit les effets 3D sur mobile pour les performances */
+  .card:hover, .price-card:hover, .step:hover, .info-card:hover {
+    transform: translateY(-5px);
+    rotate: none;
+  }
+  
+  /* Améliore l'espacement */
+  .nav-links a {
+    margin: 2px;
+  }
+  
+  /* Formulaire plus compact */
+  input, select, textarea {
+    padding: 12px;
+    font-size: 16px; /* Évite le zoom sur iOS */
+  }
+}
+
+/* --- CORRECTIONS SPÉCIFIQUES POUR ANDROID --- */
+@media (max-width: 480px) {
+  body {
+    font-size: 14px;
+  }
+  
+  .section {
+    padding: 1.5rem 0.5rem;
+  }
+  
+  h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+  
+  /* Force le conteneur à ne pas dépasser */
+  .info-cards {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .info-card {
+    width: 100%;
+    margin: 0;
+  }
+  
+  /* Garantit que le footer est lisible */
+  footer {
+    padding: 1rem 0.5rem;
+    font-size: 0.8rem;
+    line-height: 1.4;
+  }
+  
+  footer p {
+    margin: 0.3rem 0;
+    word-break: break-word;
+  }
+  
+  /* Correction spécifique pour l'URL */
+  .url-fix {
+    background: var(--input-bg);
+    padding: 15px;
+    border-radius: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+  }
+}
+
+/* --- EMPÊCHER TOUT CHEVAUCHEMENT --- */
+.anti-overlap {
+  max-width: 100%;
+  overflow: hidden;
+  word-wrap: break-word;
+}
+
+/* --- AMÉLIORATION DE LA LISIBILITÉ --- */
+.service-item {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.long-text-fix {
+  max-width: 100%;
+  display: block;
+  word-break: break-word;
+  hyphens: auto;
+}
+
+/* --- ANIMATIONS SUPPLEMENTAIRES --- */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card, .price-card, .step, .info-card {
+  animation: fadeIn 0.6s ease-out;
+}
+
+/* --- AMÉLIORATION DU SCROLL SMOOTH --- */
+html {
+  scroll-behavior: smooth;
+}
+
+/* --- STYLES POUR LES BOUTONS --- */
+.btn {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  border-radius: var(--radius);
+  text-decoration: none;
+  font-weight: 600;
+  transition: var(--transition);
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: var(--purple);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: var(--blue);
+  transform: translateY(-2px);
+  box-shadow: var(--glow);
+}
+
+/* --- LOADING ANIMATION POUR LE FORMULAIRE --- */
+.loading {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255,255,255,.3);
+  border-radius: 50%;
+  border-top-color: #fff;
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
