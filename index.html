@@ -6,6 +6,7 @@
   <title>TIG Transfert — Futuriste Clair</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
 
@@ -13,11 +14,11 @@
 <header>
   <div class="logo">TIG TRANSFERT</div>
   <nav class="nav-links">
-    <a href="#services">Services</a>
-    <a href="#how">Fonctionnement</a>
-    <a href="#pricing">Tarifs</a>
-    <a href="#faq">FAQ</a>
-    <a href="#contact" class="btn btn-primary">Commencer</a>
+    <a href="#services" data-i18n="menu.services">Services</a>
+    <a href="#how" data-i18n="menu.how">Fonctionnement</a>
+    <a href="#pricing" data-i18n="menu.pricing">Tarifs</a>
+    <a href="#faq" data-i18n="menu.faq">FAQ</a>
+    <a href="#contact" class="btn btn-primary" data-i18n="menu.start">Commencer</a>
   </nav>
   <div class="lang-switcher">
     <button data-lang="fr" class="lang-btn">FR</button>
@@ -37,68 +38,68 @@
 
 <!-- SERVICES -->
 <section id="services" class="section">
-  <h3>Nos services</h3>
+  <h3 data-i18n="services.title">Nos services</h3>
   <div class="cards">
     <div class="card">
-      <h4>Transfert international</h4>
-      <p>Envoyez et recevez de l'argent rapidement entre la France, la Russie, le Congo et le Cameroun.</p>
+      <h4 data-i18n="services.s1.title">Transfert international</h4>
+      <p data-i18n="services.s1.desc">Envoyez et recevez de l'argent rapidement entre la France, la Russie, le Congo et le Cameroun.</p>
     </div>
     <div class="card">
-      <h4>Retrait local</h4>
-      <p>Vos proches retirent en espèces dans des points partenaires sécurisés.</p>
+      <h4 data-i18n="services.s2.title">Retrait local</h4>
+      <p data-i18n="services.s2.desc">Vos proches retirent en espèces dans des points partenaires sécurisés.</p>
     </div>
     <div class="card">
-      <h4>Support multilingue</h4>
-      <p>Assistance en français, anglais et russe pour faciliter vos démarches.</p>
+      <h4 data-i18n="services.s3.title">Support multilingue</h4>
+      <p data-i18n="services.s3.desc">Assistance en français, anglais et russe pour faciliter vos démarches.</p>
     </div>
   </div>
 </section>
 
 <!-- HOW IT WORKS -->
 <section id="how" class="section">
-  <h3>Comment ça marche ?</h3>
+  <h3 data-i18n="how.title">Comment ça marche ?</h3>
   <div class="timeline">
-    <div class="step">1 Créez la demande</div>
-    <div class="step">2 Envoyez les fonds</div>
-    <div class="step">3 Retrait immédiat</div>
+    <div class="step" data-i18n="how.step1">1 Créez la demande</div>
+    <div class="step" data-i18n="how.step2">2 Envoyez les fonds</div>
+    <div class="step" data-i18n="how.step3">3 Retrait immédiat</div>
   </div>
 </section>
 
 <!-- PRICING -->
 <section id="pricing" class="section">
-  <h3>Nos tarifs</h3>
+  <h3 data-i18n="pricing.title">Nos tarifs</h3>
   <div class="price-grid">
     <div class="price-card">
-      <h4>Petit transfert</h4>
-      <p class="price">1% min</p>
-      <p>5000 frc</p>
+      <h4 data-i18n="pricing.p1.title">Petit transfert</h4>
+      <p class="price" data-i18n="pricing.p1.price">1% min</p>
+      <p data-i18n="pricing.p1.desc">5000 frc</p>
     </div>
     <div class="price-card recommended">
-      <h4>Standard</h4>
-      <p class="price">0.3%</p>
-      <p>20.000- 500.000 frc </p>
+      <h4 data-i18n="pricing.p2.title">Standard</h4>
+      <p class="price" data-i18n="pricing.p2.price">0.3%</p>
+      <p data-i18n="pricing.p2.desc">20.000- 500.000 frc </p>
     </div>
     <div class="price-card">
-      <h4>Grand montant</h4>
-      <p class="price">Sur devis</p>
-      <p>+1.000.000 frc</p>
+      <h4 data-i18n="pricing.p3.title">Grand montant</h4>
+      <p class="price" data-i18n="pricing.p3.price">Sur devis</p>
+      <p data-i18n="pricing.p3.desc">+1.000.000 frc</p>
     </div>
   </div>
 </section>
 
-<!-- CONTACT FORM -->
+<!-- CONTACT FORM (visible par défaut) -->
 <section id="contact" class="section">
-  <h3>Formulaire de transfert</h3>
+  <h3 data-i18n="contact.title">Formulaire de transfert</h3>
   <form id="transferForm" action="https://formspree.io/f/xrbybvpo" method="POST">
     <fieldset>
-      <legend>Expéditeur</legend>
-      <label for="sender_name">Nom complet</label>
+      <legend data-i18n="contact.sender">Expéditeur</legend>
+      <label for="sender_name" data-i18n="contact.fullname">Nom complet</label>
       <input type="text" name="sender_name" id="sender_name" placeholder="Nom complet" required>
       
-      <label for="sender_phone">Téléphone WhatsApp</label>
+      <label for="sender_phone" data-i18n="contact.phone">Téléphone WhatsApp</label>
       <input type="tel" name="sender_phone" id="sender_phone" placeholder="Téléphone WhatsApp" required>
       
-      <label for="sender_country">Pays d'envoi</label>
+      <label for="sender_country" data-i18n="contact.country">Pays d'envoi</label>
       <select name="sender_country" id="sender_country" required>
         <option value="" disabled selected>Pays d'envoi</option>
         <option>France</option>
@@ -109,56 +110,55 @@
     </fieldset>
 
     <fieldset>
-      <legend>Bénéficiaire</legend>
-      <label for="receiver_name">Nom du bénéficiaire</label>
+      <legend data-i18n="contact.receiver">Bénéficiaire</legend>
+      <label for="receiver_name" data-i18n="contact.receiver_name">Nom du bénéficiaire</label>
       <input type="text" name="receiver_name" id="receiver_name" placeholder="Nom du bénéficiaire" required>
       
-      <label for="receiver_city">Ville (Russie)</label>
+      <label for="receiver_city" data-i18n="contact.city">Ville (Russie)</label>
       <input type="text" name="receiver_city" id="receiver_city" placeholder="Ville (Russie)" required>
       
-      <label for="pickup_method">Méthode de retrait</label>
+      <label for="pickup_method" data-i18n="contact.method">Méthode de retrait</label>
       <select name="pickup_method" id="pickup_method" required>
         <option value="" disabled selected>Méthode de retrait</option>
-        <option>Espèces</option>
-        <option>Virement bancaire (Сбербанк, Т-Банк, Втб Банк ….)</option>
-        <option>Mobile money</option>
-        <option>Airtel Money</option>
+        <option data-i18n="contact.cash">Espèces</option>
+        <option data-i18n="contact.bank">Virement bancaire (Сбербанк, Т-Банк, Втб Банк ….)</option>
+        <option data-i18n="contact.mobile">Mobile money</option>
+        <option data-i18n="contact.mobile">Airtel Money</option>
       </select>
     </fieldset>
 
     <fieldset>
-      <legend>Montant</legend>
+      <legend data-i18n="contact.amount">Montant</legend>
       <input type="number" name="amount" id="amount" placeholder="Montant en ₽" required>
 
-      <label for="note">Message</label>
+      <label for="note" data-i18n="contact.note">Message</label>
       <textarea name="note" id="note" rows="3" placeholder="Message"></textarea>
     </fieldset>
 
     <input type="hidden" name="_subject" value="Nouvelle demande de transfert TIG">
     <input type="text" name="_gotcha" style="display:none">
 
-    <button type="submit" class="submit">Soumettre la demande</button>
+    <button type="submit" class="submit" data-i18n="contact.submit">Soumettre la demande</button>
   </form>
 </section>
 
 <!-- FAQ -->
 <section id="faq" class="section">
-  <h3>FAQ</h3>
+  <h3 data-i18n="faq.title">FAQ</h3>
   <details>
-    <summary>Quels documents faut-il ?</summary>
-    <p>Une pièce d'identité peut être demandée selon le montant envoyé.</p>
+    <summary data-i18n="faq.q1">Quels documents faut-il ?</summary>
+    <p data-i18n="faq.a1">Une pièce d'identité peut être demandée selon le montant envoyé.</p>
   </details>
   <details>
-    <summary>Combien de temps prend le transfert ?</summary>
-    <p>En moyenne quelques minutes pour les espèces, 24h pour un virement.</p>
+    <summary data-i18n="faq.q2">Combien de temps prend le transfert ?</summary>
+    <p data-i18n="faq.a2">En moyenne quelques minutes pour les espèces, 24h pour un virement.</p>
   </details>
 </section>
 
 <!-- FOOTER -->
-<footer class="anti-overlap">
+<footer>
   <p>&copy; 2025 TIG Transfert — All rights reserved — © [T.J.P]</p>
-  <p>WhatsApp : <strong>+7 999 216 6317</strong> | <strong>+7 994 406 0617</strong></p>
-  <p><strong>+242 06 472 31 53</strong></p>
+  <p>WhatsApp : <strong>+7 999 216 6317</strong> | <strong>+7 994 406 0617</strong></p> | <strong>+242 06 472 31 53</strong>
 </footer>
 
 </body>
