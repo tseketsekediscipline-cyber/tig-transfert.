@@ -1,0 +1,203 @@
+:root {
+  --blue: #00aaff;
+  --purple: #8e2de2;
+  --bg: #f5f6fa;
+  --text: #111;
+  --card-bg: #ffffff;
+  --input-bg: #f0f0f5;
+  --radius: 12px;
+  --transition: 0.4s;
+  --glow: 0 0 15px rgba(142,45,226,0.7);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Header */
+header {
+  position: sticky;
+  top: 0;
+  background: rgba(245, 246, 250, 0.95);
+  backdrop-filter: blur(5px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  z-index: 1000;
+}
+header .logo {
+  font-weight: 700;
+  font-size: 1.5rem;
+  background: linear-gradient(90deg, var(--blue), var(--purple));
+  -webkit-background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
+.nav-links a {
+  margin: 0 0.8rem;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius);
+  transition: var(--transition);
+}
+.nav-links a:hover {
+  background: var(--blue);
+  color: #fff;
+  transform: translateY(-3px);
+  box-shadow: var(--glow);
+}
+.lang-switcher button {
+  margin: 0 0.3rem;
+  padding: 0.4rem 0.8rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.lang-switcher button.active,
+.lang-switcher button:hover {
+  background: var(--purple);
+  color: #fff;
+  box-shadow: var(--glow);
+  transform: scale(1.05);
+}
+
+/* Hero avec effet particules simples */
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, #cceeff, #e0ccff);
+  border-radius: 16px;
+  margin: 2rem;
+  text-align: center;
+  perspective: 1000px;
+  position: relative;
+  overflow: hidden;
+}
+.hero-text h1 {
+  font-size: 2.5rem;
+  color: var(--text);
+  margin-bottom: 1rem;
+  transition: transform 0.3s ease;
+}
+.hero-text h1:hover {
+  transform: rotateX(5deg) rotateY(5deg);
+}
+.hero-text p {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0;
+  color: var(--purple);
+}
+
+/* Sections */
+.section {
+  padding: 3rem 2rem;
+  max-width: 1200px;
+  margin: auto;
+}
+h3 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  position: relative;
+}
+h3::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--blue), var(--purple));
+  margin: 0.5rem auto 0;
+  border-radius: 2px;
+}
+
+/* Cards et prix avec tilt 3D et glow */
+.cards, .price-grid, .timeline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+}
+.card, .price-card, .step {
+  background: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: transform 0.4s, box-shadow 0.4s;
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+.card:hover, .price-card:hover, .step:hover {
+  transform: translateY(-10px) rotateX(5deg) rotateY(5deg);
+  box-shadow: 0 15px 25px rgba(0,0,0,0.25), var(--glow);
+}
+
+/* Formulaire futuriste */
+form {
+  display: grid;
+  gap: 1rem;
+}
+fieldset {
+  border: 1px solid #ccc;
+  padding: 1rem;
+  border-radius: var(--radius);
+  transition: box-shadow 0.3s;
+}
+fieldset:focus-within {
+  box-shadow: var(--glow);
+}
+input, select, textarea {
+  width: 100%;
+  padding: 1rem;
+  border-radius: var(--radius);
+  border: 1px solid #ccc;
+  background: var(--input-bg);
+  color: var(--text);
+  transition: 0.3s, transform 0.3s;
+}
+input:focus, select:focus, textarea:focus {
+  outline: 2px solid var(--blue);
+  transform: scale(1.02);
+}
+button.submit {
+  background: var(--purple);
+  color: #fff;
+  padding: 0.7rem;
+  cursor: pointer;
+  border-radius: var(--radius);
+  transition: 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+button.submit:hover:not(:disabled) {
+  background: var(--blue);
+  transform: scale(1.05) translateY(-2px);
+  box-shadow: 0 0 20px var(--glow);
+}
+button.submit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Footer */
+footer {
+  padding: 2rem;
+  text-align: center;
+  background: #f0f0f5;
+  margin-top: 2rem;
+  border-radius: 16px 16px 0 0;
+  color: #111;
+}
