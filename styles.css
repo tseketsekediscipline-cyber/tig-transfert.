@@ -38,7 +38,6 @@ header {
   align-items: center;
   padding: 1rem 2rem;
   z-index: 1000;
-  flex-wrap: wrap;
 }
 
 header .logo {
@@ -59,11 +58,7 @@ header .logo {
   padding: 0.5rem 1rem;
   border-radius: var(--radius);
   transition: var(--transition);
-  text-decoration: none;
-  color: var(--text);
-  font-weight: 600;
 }
-
 .nav-links a:hover {
   background: var(--blue);
   color: #fff;
@@ -82,9 +77,7 @@ header .logo {
   border-radius: 6px;
   cursor: pointer;
   transition: 0.3s;
-  background: #e0e0e0;
 }
-
 .lang-switcher button.active,
 .lang-switcher button:hover {
   background: var(--purple);
@@ -115,7 +108,6 @@ header .logo {
   margin-bottom: 1rem;
   transition: transform 0.3s ease;
 }
-
 .hero-text h1:hover {
   transform: rotateX(5deg) rotateY(5deg);
 }
@@ -125,11 +117,6 @@ header .logo {
   font-weight: 600;
   margin: 0;
   color: var(--purple);
-}
-
-.big-check {
-  color: #00aa00;
-  font-weight: bold;
 }
 
 /* --- SECTIONS --- */
@@ -145,7 +132,6 @@ h3 {
   text-align: center;
   position: relative;
 }
-
 h3::after {
   content: '';
   display: block;
@@ -157,14 +143,14 @@ h3::after {
 }
 
 /* --- CARDS, PRIX, TIMELINE --- */
-.cards, .price-grid, .timeline, .info-cards {
+.cards, .price-grid, .timeline {
   display: flex;
   flex-wrap: wrap;
   gap: 1.5rem;
   justify-content: center;
 }
 
-.card, .price-card, .step, .info-card {
+.card, .price-card, .step {
   background: var(--card-bg);
   padding: 1.5rem;
   border-radius: var(--radius);
@@ -174,60 +160,24 @@ h3::after {
   transform-style: preserve-3d;
   cursor: pointer;
 }
-
-.card:hover, .price-card:hover, .step:hover, .info-card:hover {
+.card:hover, .price-card:hover, .step:hover {
   transform: translateY(-10px) rotateX(5deg) rotateY(5deg);
   box-shadow: 0 15px 25px rgba(0,0,0,0.25), var(--glow);
-}
-
-.price-card.recommended {
-  border: 2px solid var(--purple);
-  position: relative;
-}
-
-.price-card.recommended::before {
-  content: "Recommandé";
-  position: absolute;
-  top: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: var(--purple);
-  color: white;
-  padding: 3px 10px;
-  border-radius: 10px;
-  font-size: 0.8rem;
-}
-
-.price {
-  font-size: 1.8rem;
-  font-weight: bold;
-  color: var(--purple);
-  margin: 0.5rem 0;
 }
 
 /* --- FORMULAIRE --- */
 form {
   display: grid;
   gap: 1rem;
-  max-width: 600px;
-  margin: 0 auto;
 }
-
 fieldset {
   border: 1px solid #ccc;
   padding: 1rem;
   border-radius: var(--radius);
   transition: box-shadow 0.3s;
 }
-
 fieldset:focus-within {
   box-shadow: var(--glow);
-}
-
-label {
-  display: block;
-  margin-bottom: 0.5rem;
-  font-weight: 600;
 }
 
 input, select, textarea {
@@ -239,7 +189,6 @@ input, select, textarea {
   color: var(--text);
   transition: 0.3s, transform 0.3s;
 }
-
 input:focus, select:focus, textarea:focus {
   outline: 2px solid var(--blue);
   transform: scale(1.02);
@@ -252,33 +201,15 @@ button.submit {
   cursor: pointer;
   border-radius: var(--radius);
   transition: 0.3s, transform 0.3s, box-shadow 0.3s;
-  border: none;
-  font-size: 1.1rem;
-  font-weight: 600;
 }
-
 button.submit:hover:not(:disabled) {
   background: var(--blue);
   transform: scale(1.05) translateY(-2px);
   box-shadow: 0 0 20px var(--glow);
 }
-
 button.submit:disabled {
   opacity: 0.5;
   cursor: not-allowed;
-}
-
-/* --- FAQ --- */
-details {
-  margin-bottom: 1rem;
-  border: 1px solid #ddd;
-  border-radius: var(--radius);
-  padding: 1rem;
-}
-
-summary {
-  font-weight: bold;
-  cursor: pointer;
 }
 
 /* --- FOOTER --- */
@@ -291,101 +222,64 @@ footer {
   color: #111;
 }
 
-/* --- STYLES POUR LES INFORMATIONS IMPORTANTES --- */
-.info-text {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: var(--purple);
-  margin-top: 0.5rem;
-}
-
-.url-display {
-  word-break: break-all;
-  overflow-wrap: anywhere;
-  font-family: monospace;
-  font-size: 0.9rem;
-  color: var(--purple);
-  background: rgba(142, 45, 226, 0.1);
-  padding: 10px;
-  border-radius: 5px;
-  margin: 5px 0;
-}
-
-/* --- CORRECTIONS MOBILE URGENTES --- */
+/* --- MOBILE RESPONSIVE (max-width: 768px) --- */
 @media (max-width: 768px) {
-  /* Header amélioré */
-  header {
-    padding: 0.8rem 1rem;
-    flex-wrap: wrap;
-    gap: 10px;
-  }
-  
-  .logo {
-    font-size: 1.2rem !important;
-  }
-  
+
+  /* Header : menu vertical */
   .nav-links {
-    order: 3;
-    width: 100%;
-    justify-content: center;
-    margin-top: 10px;
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
   }
-  
-  .nav-links a {
-    padding: 8px 12px;
-    font-size: 0.9rem;
-    white-space: nowrap;
-  }
-  
+
   .lang-switcher {
-    margin-top: 0;
+    margin-top: 10px;
     justify-content: center;
   }
-  
-  /* Hero texte adaptatif */
+
+  /* Hero : texte plus petit et centré */
   .hero {
-    margin: 1rem;
     padding: 2rem 1rem;
+    margin: 1rem;
   }
-  
+
   .hero-text h1 {
     font-size: 1.5rem;
     line-height: 1.3;
   }
-  
+
   .hero-text p {
     font-size: 1rem;
   }
-  
-  /* Cartes sur une colonne */
-  .cards, .price-grid, .timeline, .info-cards {
+
+  /* Cartes, prix, timeline : une colonne */
+  .cards, .price-grid, .timeline {
     flex-direction: column;
-    gap: 15px;
+    gap: 20px;
     padding: 0 10px;
   }
-  
-  .card, .price-card, .step, .info-card {
+
+  .card, .price-card, .step {
     width: 100%;
-    margin: 0 auto;
   }
-  
-  /* Formulaire adapté */
+
+  /* Formulaire : champs à 100%, centré */
   form {
     width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
     padding: 0 10px;
   }
-  
+
   fieldset {
-    padding: 15px;
+    padding: 10px;
   }
-  
+
   button.submit {
     width: 100%;
     padding: 10px;
   }
-  
+
   /* Footer centré et lisible */
   footer {
     text-align: center;
@@ -393,161 +287,4 @@ footer {
     padding: 15px 10px;
     word-wrap: break-word;
   }
-  
-  /* Sections moins espacées */
-  .section {
-    padding: 2rem 1rem;
-  }
-  
-  h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-  }
-  
-  /* Réduit les effets 3D sur mobile pour les performances */
-  .card:hover, .price-card:hover, .step:hover, .info-card:hover {
-    transform: translateY(-5px);
-    rotate: none;
-  }
-  
-  /* Améliore l'espacement */
-  .nav-links a {
-    margin: 2px;
-  }
-  
-  /* Formulaire plus compact */
-  input, select, textarea {
-    padding: 12px;
-    font-size: 16px; /* Évite le zoom sur iOS */
-  }
-}
-
-/* --- CORRECTIONS SPÉCIFIQUES POUR ANDROID --- */
-@media (max-width: 480px) {
-  body {
-    font-size: 14px;
-  }
-  
-  .section {
-    padding: 1.5rem 0.5rem;
-  }
-  
-  h3 {
-    font-size: 1.3rem;
-    margin-bottom: 1rem;
-  }
-  
-  /* Force le conteneur à ne pas dépasser */
-  .info-cards {
-    flex-direction: column;
-    gap: 1rem;
-  }
-  
-  .info-card {
-    width: 100%;
-    margin: 0;
-  }
-  
-  /* Garantit que le footer est lisible */
-  footer {
-    padding: 1rem 0.5rem;
-    font-size: 0.8rem;
-    line-height: 1.4;
-  }
-  
-  footer p {
-    margin: 0.3rem 0;
-    word-break: break-word;
-  }
-  
-  /* Correction spécifique pour l'URL */
-  .url-fix {
-    background: var(--input-bg);
-    padding: 15px;
-    border-radius: 10px;
-    margin: 10px 0;
-    border: 1px solid #ddd;
-  }
-}
-
-/* --- EMPÊCHER TOUT CHEVAUCHEMENT --- */
-.anti-overlap {
-  max-width: 100%;
-  overflow: hidden;
-  word-wrap: break-word;
-}
-
-/* --- AMÉLIORATION DE LA LISIBILITÉ --- */
-.service-item {
-  margin-bottom: 1.5rem;
-  padding: 1rem;
-  background: var(--card-bg);
-  border-radius: var(--radius);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-
-.long-text-fix {
-  max-width: 100%;
-  display: block;
-  word-break: break-word;
-  hyphens: auto;
-}
-
-/* --- ANIMATIONS SUPPLEMENTAIRES --- */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.card, .price-card, .step, .info-card {
-  animation: fadeIn 0.6s ease-out;
-}
-
-/* --- AMÉLIORATION DU SCROLL SMOOTH --- */
-html {
-  scroll-behavior: smooth;
-}
-
-/* --- STYLES POUR LES BOUTONS --- */
-.btn {
-  display: inline-block;
-  padding: 0.8rem 1.5rem;
-  border-radius: var(--radius);
-  text-decoration: none;
-  font-weight: 600;
-  transition: var(--transition);
-  border: none;
-  cursor: pointer;
-}
-
-.btn-primary {
-  background: var(--purple);
-  color: white;
-}
-
-.btn-primary:hover {
-  background: var(--blue);
-  transform: translateY(-2px);
-  box-shadow: var(--glow);
-}
-
-/* --- LOADING ANIMATION POUR LE FORMULAIRE --- */
-.loading {
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  border: 3px solid rgba(255,255,255,.3);
-  border-radius: 50%;
-  border-top-color: #fff;
-  animation: spin 1s ease-in-out infinite;
-}
-
-@keyframes spin {
-  to { transform: rotate(360deg); }
 }
