@@ -56,18 +56,4 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 });
-document.addEventListener('DOMContentLoaded', () => {
-  const elements = document.querySelectorAll('.card, .price-card, .step');
 
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if(entry.isIntersecting){
-        entry.target.style.opacity = '1';
-        entry.target.style.transform = 'translateY(0)';
-        entry.target.style.transition = 'transform 0.6s ease, opacity 0.6s ease';
-      }
-    });
-  }, { threshold: 0.1 });
-
-  elements.forEach(el => observer.observe(el));
-});
